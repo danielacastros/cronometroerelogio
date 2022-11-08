@@ -1,33 +1,35 @@
-carregar();
+window.onload = carregar();
 function carregar(){
-    var msg = document.getElementById("msg");
-    var img = document.getElementById("imagem");
-    var datas = new Date();
-    var horario = datas.getHours();
-    var min = datas.getMinutes();
-    
-    if(horario<10 && min<10)
-        msg.innerHTML = `Agora são 0${horario}:0${min}`;
-    else if(horario<10)
-        msg.innerHTML = `Agora são 0${horario}:${min}`;
-    else if(min<10)
-        msg.innerHTML = `Agora são ${horario}:0${min}`;
-    else
-        msg.innerHTML = `Agora são ${horario}:${min}`;
+    setInterval(() => {
+        var msg = document.getElementById("msg");
+        var img = document.getElementById("imagem");
+        var datas = new Date();
+        var horario = datas.getHours();
+        var min = datas.getMinutes();
 
-    if(horario>=0 && horario<6){
-        img.src='.assets/img/madrugada.jpg';
-        document.body.style.background = '#634FA6';
-    }else if((horario>=6 && horario<12)){
-        img.src='assets/img/manha.jpg';
-        document.body.style.background = '#E4D678';
-    }else if(horario>=12 && horario<18){
-        img.src='assets/img/tarde.jpg';
-        document.body.style.background = '#F58656';
-    }else{
-        img.src='assets/img/noite.jpg';
-        document.body.style.background = '#094D7C';
-    }
+        if(horario<10 && min<10)
+            msg.innerHTML = `Agora são 0${horario}:0${min}`;
+        else if(horario<10)
+            msg.innerHTML = `Agora são 0${horario}:${min}`;
+        else if(min<10)
+            msg.innerHTML = `Agora são ${horario}:0${min}`;
+        else
+            msg.innerHTML = `Agora são ${horario}:${min}`;
+
+        if(horario>=0 && horario<6){
+            img.src='.assets/img/madrugada.jpg';
+            document.body.style.background = '#634FA6';
+        }else if((horario>=6 && horario<12)){
+            img.src='assets/img/manha.jpg';
+            document.body.style.background = '#E4D678';
+        }else if(horario>=12 && horario<18){
+            img.src='assets/img/tarde.jpg';
+            document.body.style.background = '#F58656';
+        }else{
+            img.src='assets/img/noite.jpg';
+            document.body.style.background = '#094D7C';
+        }
+    },1000);   
 }
 
 function criaHoraDosSegundos(segundos){
