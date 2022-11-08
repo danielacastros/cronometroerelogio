@@ -56,6 +56,7 @@ zera.addEventListener('click', zerar)
 var cron;
 
 function iniciar(){
+    clearInterval(cron);
     relogio.classList.remove('textovermelho', 'textoverde');
     cron = setInterval(function(){
         segundo++;
