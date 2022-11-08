@@ -57,10 +57,10 @@ function iniciar(){
     relogio.classList.remove('textovermelho', 'textoverde');
     cron = setInterval(function(){
         segundo++;
-        if(segundo==59){
+        if(segundo>59){
             segundo=0;
             minuto++;
-            if(minuto==59){
+            if(minuto>59){
                 minuto=0;
                 hora++;
             }
